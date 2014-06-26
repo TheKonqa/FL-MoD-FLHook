@@ -8,14 +8,13 @@
 #include "global.h"
 #include "flcodec.h"
 
-#include "../plugins/flhookplugin_sdk/headers/plugin.h"
+#include <plugin.h>
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // defines
 
 #define HKHKSUCCESS(a) ((a) == HKE_OK)
 #define HKSUCCESS(a) ((hkLastErr = (a)) == HKE_OK)
-//#define HKFAILED(a) !HKSUCCESS(a)
 
 #define SRV_ADDR(a) ((char*)hModServer + a)
 #define DALIB_ADDR(a) ((char*)hModDaLib + a)
@@ -711,10 +710,12 @@ namespace HkIEngine
 	void _LaunchPos();
 	void _CShip_init();
 	void _CShip_destroy();
+	void _HkLoadRepFromCharFile();
 
 	extern FARPROC fpOldLaunchPos;
 	extern FARPROC fpOldInitCShip;
 	extern FARPROC fpOldDestroyCShip;
+	extern FARPROC fpOldLoadRepCharFile;
 }
 
 // HkTimers

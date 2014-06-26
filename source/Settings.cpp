@@ -245,6 +245,7 @@ void LoadSettings()
 	HkAddHelpEntry( L"/ignorelist", L"", L"Displays all currently ignored characters.", L"", get_bUserCmdIgnore );
 	HkAddHelpEntry( L"/delignore", L"<id> [<id2> <id3> ...]", L"Removes the characters with the associated ignore ID (see /ignorelist) from the ignore list. * deletes all.", L"", get_bUserCmdIgnore );
 	HkAddHelpEntry( L"/autobuy", L"<param> [<on/off>]", L"Auomatically buys the given elements upon docking. See detailed help for more information.", L"<param> can take one of the following values:\tinfo - display current autobuy-settings\n\tmissiles - enable/disable autobuy for missiles\n\ttorps - enable/disable autobuy for torpedos\n\tmines - enable/disable autobuy for mines\n\tcd - enable/disable autobuy for cruise disruptors\n\tcm - enable/disable autobuy for countermeasures\n\treload - enable/disable autobuy for nanobots/shield batteries\n\tall - enable/disable autobuy for all of the above\nExamples:\n\"/autobuy missiles on\" enable autobuy for missiles\n\"/autobuy all off\" completely disable autobuy\n\"/autobuy info\" show autobuy info", get_bAutoBuy );
+	HkAddHelpEntry( L"/ids", L"", L"Lists all characters with their respective client IDs.", L"", get_bTrue );
 	HkAddHelpEntry( L"/id", L"", L"Gives your own client ID.", L"", get_bTrue );
 	HkAddHelpEntry( L"/ids", L"", L"Lists all characters with their respective client IDs.", L"", get_bTrue );
 	HkAddHelpEntry( L"/invite$ ; /i$", L"<client-id>", L"Invites the given client ID.", L"", get_bTrue );

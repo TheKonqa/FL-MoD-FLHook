@@ -12,8 +12,8 @@
 #include <time.h>
 #include <math.h>
 #include <float.h>
-#include "headers/FLHook.h"
-#include "headers/plugin.h"
+#include <FLHook.h>
+#include <plugin.h>
 #include <math.h>
 #include <list>
 #include <set>
@@ -94,7 +94,7 @@ void LoadSettings()
 	// The path to the configuration file.
 	char szCurDir[MAX_PATH];
 	GetCurrentDirectory(sizeof(szCurDir), szCurDir);
-	string scPluginCfgFile = string(szCurDir) + "\\flhook_plugins\\playercntl.ini";
+	string scPluginCfgFile = string(szCurDir) + "\\flhook_plugins\\playercntl.cfg";
 
 	set_iPluginDebug = IniGetI(scPluginCfgFile, "General", "Debug", 0);
 	if (set_iPluginDebug)
@@ -227,9 +227,9 @@ namespace HkIEngine
 				}
 
 				// Print out a message when a player ship docks.
-//				wstring wscMsg = L"";
-//				wscMsg = ReplaceStr(wscMsg, L"%player", Players.GetActiveCharacterName(iClientID));
-//				PrintLocalUserCmdText(iClientID, wscMsg, 15000);			
+				wstring wscMsg = L"Traffic control alert: %player has requested to dock";
+				wscMsg = ReplaceStr(wscMsg, L"%player", Players.GetActiveCharacterName(iClientID));
+				PrintLocalUserCmdText(iClientID, wscMsg, 15000);			
 			}
 		}
 
@@ -1330,7 +1330,7 @@ EXPORT PLUGIN_INFO* Get_PluginInfo()
 	p_PI->lstHooks.push_back(PLUGIN_HOOKINFO((FARPROC*)&HkIEngine::Dock_Call, PLUGIN_HkCb_Dock_Call, 0));
 	p_PI->lstHooks.push_back(PLUGIN_HOOKINFO((FARPROC*)&HkCb_SendChat, PLUGIN_HkCb_SendChat, 0));
 	p_PI->lstHooks.push_back(PLUGIN_HOOKINFO((FARPROC*)&UserCmd_Process, PLUGIN_UserCmd_Process, 0));
-	//	playercntrl /help entries: p_PI->lstHooks.push_back(PLUGIN_HOOKINFO((FARPROC*)&UserCmd_Help, PLUGIN_UserCmd_Help, 0));
+	p_PI->lstHooks.push_back(PLUGIN_HOOKINFO((FARPROC*)&UserCmd_Help, PLUGIN_UserCmd_Help, 0));
 	p_PI->lstHooks.push_back(PLUGIN_HOOKINFO((FARPROC*)&ExecuteCommandString_Callback, PLUGIN_ExecuteCommandString_Callback, 0));
 	p_PI->lstHooks.push_back(PLUGIN_HOOKINFO((FARPROC*)&CmdHelp_Callback, PLUGIN_CmdHelp_Callback, 0));
 	p_PI->lstHooks.push_back(PLUGIN_HOOKINFO((FARPROC*)&HkCB_MissileTorpHit, PLUGIN_HkCB_MissileTorpHit,0));

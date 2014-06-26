@@ -118,7 +118,7 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				CommandLine="copy $(OutDir)\$(TargetName).dll  ..\..\bin\flhook_plugins\"
+				CommandLine="copy $(OutDir)\$(TargetName).dll  ..\..\bin\flhook_plugins\&#x0D;&#x0A;copy $(OutDir)\$(TargetName).dll C:\Discovery\FreelancerSDK\EXE\flhook_plugins&#x0D;&#x0A;"
 				Outputs="..\..\bin\flhook_plugins\$(TargetName).dll"
 			/>
 			<Tool
@@ -136,7 +136,7 @@
 				EnableIntrinsicFunctions="true"
 				FavorSizeOrSpeed="1"
 				WholeProgramOptimization="true"
-				AdditionalIncludeDirectories="..\flhookplugin_sdk\"
+				AdditionalIncludeDirectories="&quot;$(SolutionDir)..\plugins\flhookplugin_sdk\headers\&quot;"
 				PreprocessorDefinitions="_CRT_SECURE_NO_WARNINGS;"
 				ExceptionHandling="2"
 				RuntimeLibrary="2"

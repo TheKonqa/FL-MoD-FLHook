@@ -11,8 +11,8 @@
 #include <time.h>
 #include <math.h>
 #include <float.h>
-#include "headers/FLHook.h"
-#include "headers/plugin.h"
+#include <FLHook.h>
+#include <plugin.h>
 #include <math.h>
 #include <list>
 #include <set>
@@ -20,8 +20,8 @@
 #include "PluginUtilities.h"
 #include "Main.h"
 
-#include "./headers/FLCoreServer.h"
-#include "./headers/FLCoreCommon.h"
+#include <FLCoreServer.h>
+#include <FLCoreCommon.h>
 
 namespace MiscCmds
 {
@@ -333,16 +333,16 @@ namespace MiscCmds
 		}
 
 		bool bLights = false;
-		EquipDescListItem *eqLst = Players[iClientID].equipDescList.pFirst;
-		for (EquipDescListItem *eq = eqLst->next; eq != eqLst; eq = eq->next)
+		list<EquipDesc> &eqLst = Players[iClientID].equipDescList.equip;
+		for (list<EquipDesc>::iterator eq = eqLst.begin(); eq != eqLst.end(); eq++)
 		{
-			string hp = ToLower(eq->equip.szHardPoint.value);
+			string hp = ToLower(eq->szHardPoint.value);
 			if (hp.find("dock")!=string::npos)
 			{
 				XActivateEquip ActivateEq;
 				ActivateEq.bActivate = bOn;
 				ActivateEq.iSpaceID = iShip;
-				ActivateEq.sID = eq->equip.sID;
+				ActivateEq.sID = eq->sID;
 				Server.ActivateEquip(iClientID,ActivateEq);
 				bLights = true;
 			}
