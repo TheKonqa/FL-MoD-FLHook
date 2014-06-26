@@ -1,0 +1,77 @@
+﻿Der Buildvorgang wurde am 26.06.2014 12:15:22 gestartet.
+     1>Projekt "G:\Max\Bastelstube\FL\FLHook Source\flhookplugin\project-vc12\FLHook.vcxproj" auf Knoten "2", Rebuild Ziel(e).
+     1>ClCompile:
+         D:\Programme(x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Ob2 /Oi /Ot /Oy- /GL /D _CRT_SECURE_NO_WARNINGS /D _CRT_NON_CONFORMING_SWPRINTFS /D _VC80_UPGRADE=0x0710 /D _WINDLL /D _MBCS /D _AFXDLL /Gm- /EHa /MD /GS /fp:precise /Zc:wchar_t- /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt -D_SCL_SECURE_NO_WARNINGS ..\source\flcodec.cpp ..\source\HkError.cpp ..\source\HkFLIni.cpp ..\source\HkHelp.cpp ..\source\HkInit.cpp ..\source\HkCbChat.cpp ..\source\HkCbDamage.cpp ..\source\HkCbDeath.cpp ..\source\HkCbDisconnect.cpp ..\source\HkCbIClientImpl.cpp ..\source\HkCbIEngine.cpp ..\source\HkCbIServerImpl.cpp ..\source\HkTimers.cpp ..\source\HkUserCmd.cpp ..\source\HkFuncLog.cpp ..\source\HkFuncMsg.cpp ..\source\HkFuncOther.cpp ..\source\HkFuncPlayers.cpp ..\source\HkFuncTools.cpp ..\source\HkDataBaseMarket.cpp ..\source\wildcards.cpp ..\source\CCmds.cpp ..\source\CConsole.cpp ..\source\CInGame.cpp ..\source\CSocket.cpp ..\source\blowfish.cpp ..\source\FLHook.cpp ..\source\Settings.cpp ..\source\Tools.cpp
+         flcodec.cpp
+         HkError.cpp
+         HkFLIni.cpp
+         HkHelp.cpp
+         HkInit.cpp
+         HkCbChat.cpp
+         HkCbDamage.cpp
+         HkCbDeath.cpp
+         HkCbDisconnect.cpp
+         HkCbIClientImpl.cpp
+         HkCbIEngine.cpp
+         HkCbIServerImpl.cpp
+         HkTimers.cpp
+         HkUserCmd.cpp
+         HkFuncLog.cpp
+         HkFuncMsg.cpp
+         HkFuncOther.cpp
+         HkFuncPlayers.cpp
+         HkFuncTools.cpp
+         HkDataBaseMarket.cpp
+         Kompilieren...
+         wildcards.cpp
+         CCmds.cpp
+         CConsole.cpp
+         CInGame.cpp
+         CSocket.cpp
+         blowfish.cpp
+         FLHook.cpp
+         Settings.cpp
+         Tools.cpp
+         D:\Programme(x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Ob2 /Oi /Ot /Oy- /GL /D _CRT_SECURE_NO_WARNINGS /D _CRT_NON_CONFORMING_SWPRINTFS /D _VC80_UPGRADE=0x0710 /D _WINDLL /D _MBCS /D _AFXDLL /Gm- /EHa /MD /GS /fp:precise /Zc:wchar_t- /Zc:forScope /Fo"Release\HkPluginManager1.obj" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt -D_SCL_SECURE_NO_WARNINGS ..\source\HkPluginManager.cpp
+         HkPluginManager.cpp
+       Link:
+         D:\Programme(x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Release\FLHook.dll" /INCREMENTAL:NO /NOLOGO Ws2_32.lib psapi.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"D:\Programme(x86)\Microsoft Visual Studio 12.0\VC\Include\Manifest\dpiaware.manifest" /DEBUG /PDB:"Release\FLHook.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"Release\FLHook.lib" /MACHINE:X86 /SAFESEH /DLL Release\flcodec.obj
+         Release\HkError.obj
+         Release\HkFLIni.obj
+         Release\HkHelp.obj
+         Release\HkInit.obj
+         Release\HkCbChat.obj
+         Release\HkCbDamage.obj
+         Release\HkCbDeath.obj
+         Release\HkCbDisconnect.obj
+         Release\HkCbIClientImpl.obj
+         Release\HkCbIEngine.obj
+         Release\HkCbIServerImpl.obj
+         Release\HkTimers.obj
+         Release\HkUserCmd.obj
+         Release\HkFuncLog.obj
+         Release\HkFuncMsg.obj
+         Release\HkFuncOther.obj
+         Release\HkFuncPlayers.obj
+         Release\HkFuncTools.obj
+         Release\HkDataBaseMarket.obj
+         Release\wildcards.obj
+         Release\CCmds.obj
+         Release\CConsole.obj
+         Release\CInGame.obj
+         Release\CSocket.obj
+         Release\blowfish.obj
+         Release\FLHook.obj
+         Release\Settings.obj
+         Release\Tools.obj
+         Release\HkPluginManager1.obj
+         flcodec.obj : Es wurde ein mit /GL kompiliertes MSIL .netmodule oder module gefunden. Verknüpfung wird mit /LTCG erneut gestartet. Fügen Sie /LTCG zur Linkbefehlszeile hinzu, um die Linkerleistung zu erhöhen.
+            Bibliothek "Release\FLHook.lib" und Objekt "Release\FLHook.exp" werden erstellt.
+         Code wird generiert.
+         Codegenerierung ist abgeschlossen.
+         FLHook.vcxproj -> G:\Max\Bastelstube\FL\FLHook Source\flhookplugin\project-vc12\Release\FLHook.dll
+     1>Die Erstellung des Projekts "G:\Max\Bastelstube\FL\FLHook Source\flhookplugin\project-vc12\FLHook.vcxproj" ist abgeschlossen, Rebuild Ziel(e).
+
+Build erfolgreich.
+
+Verstrichene Zeit 00:00:38.76

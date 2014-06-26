@@ -1,0 +1,9 @@
+﻿Der Buildvorgang wurde am 22.06.2014 16:31:49 gestartet.
+     1>Projekt "G:\Max\Bastelstube\FL\FLHook Source\flhookplugin\project-vc12\FLHook.vcxproj" auf Knoten "2", rebuild Ziel(e).
+       Die Projektdatei enthält ToolsVersion="12.0". Dieses Toolset ist möglicherweise nicht bekannt oder nicht vorhanden. In diesem Fall können Sie das Problem möglicherweise beheben, indem Sie die passende Version von MSBuild installieren. Oder für den Build wurde aufgrund von Richtlinien eine bestimmte ToolsVersion erzwungen. Das Projekt wird so behandelt, als enthielte es ToolsVersion="4.0". Weitere Informationen finden Sie unter http://go.microsoft.com/fwlink/?LinkId=291333.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Platforms\Win32\Microsoft.Cpp.Win32.Targets(518,5): error MSB8008: Das angegebene Plattformtoolset (v120) ist nicht installiert oder ungültig. Stellen Sie sicher, dass ein unterstützter PlatformToolset-Wert ausgewählt wurde.
+     1>Die Erstellung des Projekts "G:\Max\Bastelstube\FL\FLHook Source\flhookplugin\project-vc12\FLHook.vcxproj" ist abgeschlossen, rebuild Ziel(e) -- FEHLER.
+
+Fehler beim Erstellen
+
+Verstrichene Zeit 00:00:00.37
