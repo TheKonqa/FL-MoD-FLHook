@@ -92,16 +92,19 @@ copy /Y $(OutDir)$(TargetName).dll C:\Discovery\FreelancerSDK\EXE\flhook_plugins
     <PostBuildEvent>
       <Command />
     </PostBuildEvent>
+    <BuildLog>
+      <Path />
+    </BuildLog>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <PreBuildEvent>
       <Command />
     </PreBuildEvent>
     <CustomBuildStep>
-      <Command>copy /Y $(OutDir)$(TargetName).dll  ..\..\..\bin-vc12\flhook_plugins\
-copy /Y $(OutDir)$(TargetName).pdb  ..\..\..\bin-vc12\flhook_plugins\
+      <Command>copy $(OutDir)$(TargetName).dll  ..\..\..\bin-vc12\flhook_plugins\
+copy $(OutDir)$(TargetName).pdb  ..\..\..\bin-vc12\flhook_plugins\
 </Command>
-      <Outputs>..\..\..\bin-vc12\flhook_plugins\$(TargetName).dll;..\..\..\bin-vc12\flhook_plugins\$(TargetName).pdb;%(Outputs)</Outputs>
+      <Outputs>..\..\bin-vc12\flhook_plugins\$(TargetName).dll;%(Outputs)</Outputs>
     </CustomBuildStep>
     <ClCompile>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;__NOINCFLHOOKLIBS__;%(PreprocessorDefinitions)</PreprocessorDefinitions>

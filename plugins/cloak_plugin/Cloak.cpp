@@ -516,7 +516,7 @@ void __stdcall HkCb_AddDmgEntry(DamageList *dmg, unsigned short p1, float damage
 EXPORT PLUGIN_INFO* Get_PluginInfo()
 {
 	PLUGIN_INFO* p_PI = new PLUGIN_INFO();
-	p_PI->sName = "Cloak Plugin by cannon";
+	p_PI->sName = "Discovery Cloak Plugin by cannon";
 	p_PI->sShortName = "cloak";
 	p_PI->bMayPause = true;
 	p_PI->bMayUnload = true;

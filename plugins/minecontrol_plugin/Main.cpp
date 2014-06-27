@@ -314,7 +314,7 @@ EXPORT void LoadSettings()
 	// The path to the configuration file.
 	char szCurDir[MAX_PATH];
 	GetCurrentDirectory(sizeof(szCurDir), szCurDir);
-	string scPluginCfgFile = string(szCurDir) + "\\flhook_plugins\\minecontrol.cfg";
+	string scPluginCfgFile = string(szCurDir) + "\\flhook_plugins\\minecontrol.ini";
 
 	// Load generic settings
 	set_fGenericFactor = IniGetF(scPluginCfgFile, "MiningGeneral", "GenericFactor", 1.0);

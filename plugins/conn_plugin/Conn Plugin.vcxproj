@@ -93,6 +93,9 @@ copy /Y $(OutDir)$(TargetName).dll C:\Discovery\FreelancerSDK\EXE\flhook_plugins
     <PostBuildEvent>
       <Command />
     </PostBuildEvent>
+    <BuildLog>
+      <Path />
+    </BuildLog>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <PreBuildEvent>

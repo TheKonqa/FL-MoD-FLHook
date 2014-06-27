@@ -86,6 +86,9 @@ copy $(OutDir)$(TargetName).dll  "C:\Program Files\Microsoft Games\Freelancer\EX
     <PostBuildEvent>
       <Command />
     </PostBuildEvent>
+    <BuildLog>
+      <Path />
+    </BuildLog>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <CustomBuildStep>

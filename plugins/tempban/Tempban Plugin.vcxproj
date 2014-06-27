@@ -87,6 +87,9 @@ copy /Y $(OutDir)$(TargetName).pdb  ..\..\bin-vc12\flhook_plugins\
     <PostBuildEvent>
       <Command />
     </PostBuildEvent>
+    <BuildLog>
+      <Path />
+    </BuildLog>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <CustomBuildStep>

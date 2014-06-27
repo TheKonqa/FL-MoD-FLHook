@@ -91,6 +91,9 @@ copy /Y $(OutDir)$(TargetName).lib  ..\plugins\flhookplugin_sdk\libs\
     <PostBuildEvent>
       <Command />
     </PostBuildEvent>
+    <BuildLog>
+      <Path />
+    </BuildLog>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <CustomBuildStep>
@@ -125,6 +128,7 @@ copy /Y  $(OutDir)$(TargetName).lib  ..\plugins\flhookplugin_sdk\libs\$(TargetNa
       <DataExecutionPrevention />
       <ImportLibrary>$(OutDir)FLHook.lib</ImportLibrary>
       <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalOptions>/LTCG %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
       <Command />

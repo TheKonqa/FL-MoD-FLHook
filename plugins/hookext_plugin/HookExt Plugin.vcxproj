@@ -55,6 +55,7 @@
     <IntDir>Release\</IntDir>
     <PreBuildEventUseInBuild>true</PreBuildEventUseInBuild>
     <LinkIncremental>false</LinkIncremental>
+    <TargetName>ahookext</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <PreBuildEvent>
@@ -94,15 +95,16 @@ copy $(OutDir)$(TargetName).dll C:\Discovery\FreelancerSDK\EXE\flhook_plugins
     <PostBuildEvent>
       <Command />
     </PostBuildEvent>
+    <BuildLog>
+      <Path />
+    </BuildLog>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <PreBuildEvent>
       <Command />
     </PreBuildEvent>
     <CustomBuildStep>
-      <Command>copy $(OutDir)$(TargetName).dll  ..\..\bin\flhook_plugins\
-copy $(OutDir)$(TargetName).dll C:\Discovery\FreelancerSDK\EXE\flhook_plugins
-</Command>
+      <Command>copy $(OutDir)$(TargetName).dll  ..\..\bin\flhook_plugins\</Command>
       <Outputs>..\..\bin\flhook_plugins\$(TargetName).dll;%(Outputs)</Outputs>
     </CustomBuildStep>
     <ClCompile>
