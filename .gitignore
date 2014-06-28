@@ -1,4 +1,4 @@
 *.pdb
 *.log
-*.pdb
-*.pdb
+*.tlog
+*BuildLog.htm
