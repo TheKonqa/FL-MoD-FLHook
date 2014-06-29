@@ -131,6 +131,7 @@
 				EnableIntrinsicFunctions="true"
 				FavorSizeOrSpeed="1"
 				WholeProgramOptimization="true"
+				AdditionalIncludeDirectories="&quot;$(SolutionDir)..\plugins\flhookplugin_sdk\headers\&quot;"
 				ExceptionHandling="2"
 				RuntimeLibrary="2"
 				TreatWChar_tAsBuiltInType="false"

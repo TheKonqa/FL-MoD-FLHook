@@ -120,6 +120,7 @@
 				UseUnicodeResponseFiles="true"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
+				AdditionalIncludeDirectories="&quot;$(SolutionDir)..\plugins\flhookplugin_sdk\headers\&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;DYNAMICMISSIONS_EXPORTS"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"

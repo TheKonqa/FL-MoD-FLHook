@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <string>
 #include <math.h>
-#include "../flhookplugin_sdk/headers/FLHook.h"
-#include "../flhookplugin_sdk/headers/plugin.h"
+#include <FLHook.h>
+#include <plugin.h>
 #include "header.h"
 #define PRINT_DISABLED() PrintUserCmdText(iClientID, L"Command disabled");
 #define PRINT_ERROR() { for(uint i = 0; (i < sizeof(wscError)/sizeof(wstring)); i++) PrintUserCmdText(iClientID, wscError[i]); return; }

@@ -2,3 +2,11 @@
 *.log
 *.tlog
 *BuildLog.htm
+bin-vc12/FLHook.pdb
+bin-vc12/FLHook.dll
+project-vc9/Release/
+project-vc10/Release/
+project-vc12/Release/
+project-vc9/Debug/
+project-vc10/Debug/
+project-vc12/Debug/
