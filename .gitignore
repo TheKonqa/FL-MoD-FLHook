@@ -11,3 +11,5 @@ project-vc9/Debug/
 project-vc10/Debug/
 project-vc12/Debug/
 *.htm
+*.ncb
+*.suo
