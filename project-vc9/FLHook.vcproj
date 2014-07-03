@@ -158,7 +158,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalOptions="/LTCG"
 				AdditionalDependencies="Ws2_32.lib psapi.lib"
 				OutputFile="$(OutDir)/FLHook.dll"
 				LinkIncremental="1"

@@ -13,3 +13,6 @@ project-vc12/Debug/
 *.htm
 *.ncb
 *.suo
+plugins/anticheat/Release/BuildLog.htm
+plugins/anticheat/Release/BuildLog.htm
+plugins/basehash/Release/BuildLog.htm

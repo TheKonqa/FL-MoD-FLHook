@@ -118,7 +118,7 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				CommandLine="copy $(OutDir)\$(TargetName).dll  ..\..\bin\flhook_plugins\&#x0D;&#x0A;copy $(OutDir)\$(TargetName).dll C:\Discovery\FreelancerSDK\EXE\flhook_plugins&#x0D;&#x0A;"
+				CommandLine="copy $(OutDir)\$(TargetName).dll  ..\..\bin\flhook_plugins\"
 				Outputs="..\..\bin\flhook_plugins\$(TargetName).dll"
 			/>
 			<Tool

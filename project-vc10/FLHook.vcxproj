@@ -118,7 +118,6 @@
       </DataExecutionPrevention>
       <ImportLibrary>$(OutDir)FLHook.lib</ImportLibrary>
       <TargetMachine>MachineX86</TargetMachine>
-      <AdditionalOptions>/LTCG %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
       <Message>Copy lib/dll to sdk/bin directory</Message>
