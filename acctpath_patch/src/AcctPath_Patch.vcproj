@@ -107,6 +107,8 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
+				CommandLine="copy $(OutDir)\$(TargetName).dll  ..\bin\&#x0D;&#x0A;copy $(OutDir)\$(TargetName).pdb  ..\bin\"
+				Outputs="..\bin\$(TargetName).dll"
 			/>
 			<Tool
 				Name="VCXMLDataGeneratorTool"

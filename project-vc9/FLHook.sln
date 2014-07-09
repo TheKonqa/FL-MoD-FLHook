@@ -96,6 +96,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tokens Plugin", "..\plugins
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DynamicMissions", "..\plugins\dynamic_missions\DynamicMissions.vcproj", "{E2AF92F5-C2F1-4196-858D-541F1BFDFCF6}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AcctPath_Patch", "..\acctpath_patch\src\AcctPath_Patch.vcproj", "{DEA7F4AC-E568-43EE-83D6-CA8804EA557B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -289,6 +291,12 @@ Global
 		{E2AF92F5-C2F1-4196-858D-541F1BFDFCF6}.Release|Win32.Build.0 = Release|Win32
 		{E2AF92F5-C2F1-4196-858D-541F1BFDFCF6}.ReleaseVersion|Win32.ActiveCfg = Release|Win32
 		{E2AF92F5-C2F1-4196-858D-541F1BFDFCF6}.ReleaseVersion|Win32.Build.0 = Release|Win32
+		{DEA7F4AC-E568-43EE-83D6-CA8804EA557B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DEA7F4AC-E568-43EE-83D6-CA8804EA557B}.Debug|Win32.Build.0 = Debug|Win32
+		{DEA7F4AC-E568-43EE-83D6-CA8804EA557B}.Release|Win32.ActiveCfg = Release|Win32
+		{DEA7F4AC-E568-43EE-83D6-CA8804EA557B}.Release|Win32.Build.0 = Release|Win32
+		{DEA7F4AC-E568-43EE-83D6-CA8804EA557B}.ReleaseVersion|Win32.ActiveCfg = Release|Win32
+		{DEA7F4AC-E568-43EE-83D6-CA8804EA557B}.ReleaseVersion|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
