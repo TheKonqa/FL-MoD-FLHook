@@ -75,7 +75,7 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
 		// The path to the configuration file.
 		char szCurDir[MAX_PATH];
 		GetCurrentDirectory(sizeof(szCurDir), szCurDir);
-		std::string scServerCfgFile = std::string(szCurDir) + "\\acctpath_patch.cfg";
+		std::string scServerCfgFile = std::string(szCurDir) + "\\acctpath_patch.ini";
 		set_scDataPath = Trim(IniGetS(scServerCfgFile, "General", "DataPath", ""));
 
 		// Install the patch
