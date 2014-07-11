@@ -94,19 +94,11 @@ struct FLPACKET_CREATESOLAR
 	uint iSpaceID;
 	uint iSolarArch;
 	uint iDunno[2];
-	struct {
-		uint head;
-		uint body;
-		uint lefthand;
-		uint righthand;
-		uint accessory[8];
-		int  accessories;
-	} costume;
-	int iVoiceID;
+	float fDunno[14];
 	float fPosX;
 	float fPosY;
 	float fPosZ;
-	float fDunno[13];
+	float fDunno2[13];
 };
 
 struct FLPACKET_LAND
@@ -184,7 +176,7 @@ public:
 	EXPORT virtual bool Send_FLPACKET_SERVER_LAUNCH(uint iClientID, FLPACKET_LAUNCH& pLaunch);
 	virtual bool Send_FLPACKET_SERVER_REQUESTCREATESHIPRESP(uint iClientID, bool bResponse, uint iShipID);
 	virtual void unknown_63(uint iClientID, FLPACKET_UNKNOWN& pDunno);
-	EXPORT virtual bool Send_FLPACKET_SERVER_DAMAGEOBJECT(uint iClientID, uint iObj, list<DamageEntry> &damageentries);
+	EXPORT virtual bool Send_FLPACKET_SERVER_DAMAGEOBJECT(uint iClientID, uint iObj, float iDamage);
 	virtual bool Send_FLPACKET_SERVER_ITEMTRACTORED(uint iClientID, uint iDunno);
 	virtual bool Send_FLPACKET_SERVER_USE_ITEM(uint iClientID, uint iDunno);
 	virtual bool Send_FLPACKET_SERVER_SETREPUTATION(uint iClientID, FLPACKET_SETREPUTATION& pDunno);

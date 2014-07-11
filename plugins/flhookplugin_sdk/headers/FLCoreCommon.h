@@ -142,11 +142,7 @@ enum HpAttachmentType
 
 namespace Archetype
 {
-	class IMPORT FuseIgnitionList
-	{
-	public:
-		unsigned char data[OBJECT_DATA_SIZE];
-	};
+	class FuseIgnitionList;
 
 
 	enum AClassType
@@ -1138,16 +1134,11 @@ struct IMPORT DamageEntry
 	static char const *  FateToString(enum SubObjFate);
 
 public:
-	USHORT subobj;
-	float health;
-	SubObjFate fate;
+	unsigned char data[OBJECT_DATA_SIZE];
 };
-
-enum DamageCause;
 
 struct IMPORT DamageList
 {
-
 	DamageList(struct DamageList const &);
 	DamageList(void);
 	~DamageList(void);
@@ -1166,12 +1157,7 @@ struct IMPORT DamageList
 	void set_inflictor_owner_player(unsigned int);
 
 public:
-	uint iDunno1; // 0
-	list<DamageEntry> damageentries; // 4
-	bool bDestroyed; // 12
-	uint iDunno2; // 16
-	uint iInflictorID; // 20
-	uint iInflictorPlayerID; // 24
+	unsigned char data[OBJECT_DATA_SIZE];
 };
 
 class IMPORT CArchGroup
@@ -1311,17 +1297,17 @@ namespace Universe
 	};
 	struct IMPORT IZone
 	{
-		float iDunno1[1];
+		uint iDunno1[1];
 		uint iZoneID;
 		uint iSystemID;
 		Matrix mRot;
 		Vector vPos;
 		uint iDunno2;
-		uint iPropertyFlags;
+		uint iDunno3;
 		Vector vSize;
-		float iDunno4[13];
+		uint iDunno4[13];
 		CmnAsteroid::LootableZone *lootableZone;
-		float iDunno5[10];
+		uint iDunno5[10];
 	};
 
 	IMPORT  struct ISystem *  GetFirstSystem(void);
@@ -1615,6 +1601,8 @@ namespace PhySys
 		void push(class Vector const &,float);
 		void rotate(class Vector const &,float);
 		void wakeup(void);
+
+		unsigned char data[OBJECT_DATA_SIZE];
 	};
 
 	class IMPORT PhyCollisionStateManager
@@ -1899,15 +1887,6 @@ public:
 	{
 		CSOLAR_OBJECT = 0x303,
 		CSHIP_OBJECT = 0x503,
-		CLOOT_OBJECT = 0x803,
-		CASTEROID_OBJECT = 0x1003,
-		MOUNTED_OBJECT = 0x2001,
-		CDYNAMICASTEROID_OBJECT = 0x4001,
-		CBEAM_OBJECT = 0x67,
-		CGUIDED_OBJECT = 0xA7,
-		UNK8 = 15,
-		UNK9 = 23,
-		WEAPON_PLATFORM_OBJECT = 0x1,
 	};
 
 	static struct CObject *  Alloc(enum Class);
@@ -1945,12 +1924,26 @@ public:
 	bool is_shield_part(unsigned int)const ;
 	long part_to_inst(unsigned int)const ;
 
-	Class enum_classid;
-	uint iSystem;
-	uint iDunno[23];
-	uint iSpaceID;
-	uint iDunno5[11];
-	uint iType;
+	/* 4c */ uint object_class;
+	/* 50 */ uint system;
+	/* 54 */ uint dunno1;
+	/* 58 */ uint dunno2;
+	/* 5c */ uint dunno3;
+	/* 60 */ uint dunno4;
+	/* 64 */ uint dunno5;
+	/* 68 */ uint dunno6;
+	/* 6c */ uint dunno7;
+	/* 70 */ uint dunno8;
+	/* 74 */ uint dunno9;
+	/* 78 */ uint dunno10;
+	/* 7C */ uint dunno11;
+	/* 80 */ uint dunno12;
+	/* 84 */ uint dunno13;
+	/* 88 */ Archetype::Root* archetype;
+	/* 8c */ uint dunno14;
+	/* 90 */ uint dunno15;
+	/* 94 */ uint dunno16;
+	/* 98 */ uint dunno17;
 };
 
 struct IMPORT CSimple : public CObject
@@ -1991,6 +1984,25 @@ public:
 	float get_scanner_interference(void)const ;
 	unsigned int get_type(void)const ;
 	void update_zones(float,unsigned int);
+
+	/* 9c */ uint dunno1;	
+	/* a0 */ bool is_targettable;
+	/* a4 */ uint dunno2;
+	/* a8 */ uint dunno3;
+	/* ac */ IObjDB *obj_database;
+	/* b0 */ uint space_id;
+    /* b4 */ uint owner_player;
+	/* b8 */ uint dunno4;
+	/* bc */ float hit_pts;
+	/* c0 */ uint dunno5;
+	/* c4 */ uint dunno6;
+	/* c8 */ uint dunno7;
+	/* cc */ uint dunno8;
+	/* d0 */ uint dunno9;
+	/* d4 */ uint dunno10;
+	/* d8 */ uint dunno11;
+	/* dc */ uint dunno12;
+	/* e0 */ uint dunno13;
 };
 
 struct IMPORT CProjectile : public CSimple
@@ -2789,16 +2801,13 @@ public:
 	bool add_equipped_item(struct EquipDesc const &);
 	void compute_explosion_dmg_bounding_sphere(float &,class Vector &)const ;
 	void init_docking_points(unsigned int);
+	void destroy_equipment(struct DamageList const &,bool);
 	void update_docking_animations(float);
 
-	/* 0x088 */ Archetype::Ship* ship_arch;
-	/* 0x08c */ UINT dunno3[0x16];
 	/* 0x0e0 */ CEquipManager equip_manager; // 180 bytes
 	/* 0x194 */ float  fPower;
 	/* 0x198 */ float  fMaxPower;
 
-private:
-	void destroy_equipment(DamageList const &, bool);
 };
 
 
@@ -3633,7 +3642,14 @@ public:
 	float fHealth;
 	UINT iCount;
 	bool bMission;
-	uint iOwner;
+	int iOwner;
+};
+
+struct EquipDescListItem
+{
+	EquipDescListItem *next;
+	UINT iDunno;
+	EquipDesc equip;
 };
 
 class IMPORT EquipDescList
@@ -3657,8 +3673,10 @@ public:
 	struct EquipDesc const * traverse_equipment_type(unsigned int,struct EquipDesc const *)const ;
 
 public:
-	uint iDunno;
-	std::list<EquipDesc> equip;
+	// std::list<EquipDesc> equip; // FIXME: std::list is not compatible with VC9 libs
+	EquipDescListItem *pIter;
+	EquipDescListItem *pFirst;
+	UINT iCount;
 };
 
 struct IMPORT EquipDescVector
@@ -3674,7 +3692,8 @@ struct IMPORT EquipDescVector
 
 public:
 	uint iDunno;
-	std::vector<EquipDesc> equip;
+	EquipDesc *start;
+	EquipDesc *end;
 };
 
 namespace ErrorHandler

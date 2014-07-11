@@ -89,8 +89,6 @@ bool HkIClientImpl::Send_FLPACKET_COMMON_ACTIVATECRUISE(uint iClientID, XActivat
 	ISERVER_LOG();
 	ISERVER_LOGARG_UI(iClientID);
 
-	CALL_PLUGINS(PLUGIN_HkIClientImpl_Send_FLPACKET_COMMON_ACTIVATECRUISE,bool,__stdcall,(uint,XActivateCruise&),(iClientID, aq));
-
 	CALL_CLIENT_METHOD(Send_FLPACKET_COMMON_ACTIVATECRUISE(iClientID, aq));
 	return reinterpret_cast<bool>(vRet);
 }
@@ -102,8 +100,6 @@ bool HkIClientImpl::Send_FLPACKET_COMMON_ACTIVATEEQUIP(unsigned int iClientID, s
 {
 	ISERVER_LOG();
 	ISERVER_LOGARG_UI(iClientID);
-
-	CALL_PLUGINS(PLUGIN_HkIClientImpl_Send_FLPACKET_COMMON_ACTIVATEEQUIP,bool,__stdcall,(uint,XActivateEquip&),(iClientID, aq));
 
 	CALL_CLIENT_METHOD(Send_FLPACKET_COMMON_ACTIVATEEQUIP(iClientID, aq));
 	return reinterpret_cast<bool>(vRet);
@@ -118,8 +114,6 @@ bool HkIClientImpl::Send_FLPACKET_COMMON_ACTIVATETHRUSTERS(uint iClientID, XActi
 	ISERVER_LOG();
 	ISERVER_LOGARG_UI(iClientID);
 
-	CALL_PLUGINS(PLUGIN_HkIClientImpl_Send_FLPACKET_COMMON_ACTIVATETHRUSTERS,bool,__stdcall,(uint,XActivateThrusters&),(iClientID, aq));
-
 	CALL_CLIENT_METHOD(Send_FLPACKET_COMMON_ACTIVATETHRUSTERS(iClientID, aq));
 	return reinterpret_cast<bool>(vRet);
 }
@@ -131,8 +125,6 @@ bool HkIClientImpl::Send_FLPACKET_COMMON_FIREWEAPON(uint iClientID, FLPACKET_UNK
 {
 	ISERVER_LOG();
 	ISERVER_LOGARG_UI(iClientID);
-
-	CALL_PLUGINS(PLUGIN_HkIClientImpl_Send_FLPACKET_COMMON_FIREWEAPON,bool,__stdcall,(uint,FLPACKET_UNKNOWN&),(iClientID, pDunno));
 
 	CALL_CLIENT_METHOD(Send_FLPACKET_COMMON_FIREWEAPON(iClientID, pDunno));
 	return reinterpret_cast<bool>(vRet);
@@ -290,8 +282,6 @@ bool HkIClientImpl::Send_FLPACKET_COMMON_UPDATEOBJECT(uint iClientID, SSPObjUpda
 	ISERVER_LOG();
 	ISERVER_LOGARG_UI(iClientID);
 
-	CALL_PLUGINS(PLUGIN_HkIClientImpl_Send_FLPACKET_COMMON_UPDATEOBJECT,bool,__stdcall,(uint,SSPObjUpdateInfo&),(iClientID, pUpdate));
-
 	CALL_CLIENT_METHOD(Send_FLPACKET_COMMON_UPDATEOBJECT(iClientID, pUpdate));
 	return reinterpret_cast<bool>(vRet);
 }
@@ -303,8 +293,6 @@ bool HkIClientImpl::Send_FLPACKET_SERVER_ACTIVATEOBJECT(uint iClientID, XActivat
 {
 	ISERVER_LOG();
 	ISERVER_LOGARG_UI(iClientID);
-
-	CALL_PLUGINS(PLUGIN_HkIClientImpl_Send_FLPACKET_SERVER_ACTIVATEOBJECT,bool,__stdcall,(uint,XActivateEquip&),(iClientID, aq));
 
 	CALL_CLIENT_METHOD(Send_FLPACKET_SERVER_ACTIVATEOBJECT(iClientID, aq));
 	return reinterpret_cast<bool>(vRet);
@@ -429,14 +417,14 @@ bool HkIClientImpl::Send_FLPACKET_SERVER_CREATESOLAR(uint iClientID, FLPACKET_CR
 /**************************************************************************************************************
 **************************************************************************************************************/
 
-bool HkIClientImpl::Send_FLPACKET_SERVER_DAMAGEOBJECT(uint iClientID, uint iObj, list<DamageEntry>& damageentries)
+bool HkIClientImpl::Send_FLPACKET_SERVER_DAMAGEOBJECT(uint iClientID, uint iObj, float fHitPoints)
 {
 	ISERVER_LOG();
 	ISERVER_LOGARG_UI(iClientID);
 	ISERVER_LOGARG_UI(iObj);
-	//ISERVER_LOGARG_UI(damageentries);
+	ISERVER_LOGARG_UI(fHitPoints);
 
-	CALL_CLIENT_METHOD(Send_FLPACKET_SERVER_DAMAGEOBJECT(iClientID, iObj, damageentries));
+	CALL_CLIENT_METHOD(Send_FLPACKET_SERVER_DAMAGEOBJECT(iClientID, iObj, fHitPoints));
 	return reinterpret_cast<bool>(vRet);
 }
 
@@ -447,8 +435,6 @@ bool HkIClientImpl::Send_FLPACKET_SERVER_DESTROYOBJECT(uint iClientID, FLPACKET_
 {
 	ISERVER_LOG();
 	ISERVER_LOGARG_UI(iClientID);
-
-	CALL_PLUGINS(PLUGIN_HkIClientImpl_Send_FLPACKET_SERVER_DESTROYOBJECT,bool,__stdcall,(uint,FLPACKET_DESTROYOBJECT&),(iClientID, pDestroy));
 
 	CALL_CLIENT_METHOD(Send_FLPACKET_SERVER_DESTROYOBJECT(iClientID, pDestroy));
 	return reinterpret_cast<bool>(vRet);

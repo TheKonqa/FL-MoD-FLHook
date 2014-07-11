@@ -24,11 +24,6 @@
 
 #pragma comment( lib, "FLCoreServer.lib" )
 
-#define POPUPDIALOG_BUTTONS_LEFT_YES 1
-#define POPUPDIALOG_BUTTONS_CENTER_NO 2
-#define POPUPDIALOG_BUTTONS_RIGHT_LATER 4
-#define POPUPDIALOG_BUTTONS_CENTER_OK 8
-
 
 struct CHAT_ID
 {
@@ -147,8 +142,8 @@ struct XJettisonCargo
 struct XGoTradelane
 {
 	uint iShip;
-	uint iTradelaneSpaceObj1;
-	uint iTradelaneSpaceObj2;
+	uint iArchTradelane1;
+	uint iArchTradelane2;
 };
 
 struct CAccountListNode

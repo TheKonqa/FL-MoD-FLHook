@@ -16,7 +16,6 @@
 #include <stdio.h>
 #include <string>
 #include <list>
-#include <functional>
 using namespace std;
 
 // defines

@@ -11,41 +11,44 @@ bool HkLoadBaseMarket()
 
 	while(ini.read_header())
 	{
-		if (!ini.is_header("BaseGood"))
-			continue;
-		if(!ini.read_value())
-			continue;
-		if(!ini.is_value("base"))
-			continue;
+		try {
+			if(!ini.is_header("BaseGood"))
+				throw "";
+			if(!ini.read_value())
+				throw "";
+			if(!ini.is_value("base"))
+				throw "";
 
-		const char *szBaseName = ini.get_value_string();
-		BASE_INFO *biBase = 0;
-		foreach(lstBases, BASE_INFO, it)
-		{
-			const char *szBN = it->scBasename.c_str();
-			if(!ToLower(it->scBasename).compare(ToLower(szBaseName)))
+			const char *szBaseName = ini.get_value_string();
+			BASE_INFO *biBase = 0;
+			foreach(lstBases, BASE_INFO, it)
 			{
-				biBase = &(*it);
-				break;
+				const char *szBN = it->scBasename.c_str();
+				if(!ToLower(it->scBasename).compare(ToLower(szBaseName)))
+				{
+					biBase = &(*it);
+					break;
+				}
 			}
-		}
 
-		if(!biBase)
-			continue; // base not found
+			if(!biBase)
+				throw ""; // base not found
 
-		ini.read_value();
+			ini.read_value();
 
-		biBase->lstMarketMisc.clear();
-		if(!ini.is_value("MarketGood"))
-			continue;
+			biBase->lstMarketMisc.clear();
+			if(!ini.is_value("MarketGood"))
+				throw "";
 
-		do {
-			DATA_MARKETITEM mi;
-			const char *szEquipName = ini.get_value_string(0);
-			mi.iArchID = CreateID(szEquipName);
-			mi.fRep = ini.get_value_float(2);
-			biBase->lstMarketMisc.push_back(mi);
-		} while(ini.read_value());
+			do {
+				DATA_MARKETITEM mi;
+				const char *szEquipName = ini.get_value_string(0);
+				mi.iArchID = CreateID(szEquipName);
+				mi.fRep = ini.get_value_float(2);
+				biBase->lstMarketMisc.push_back(mi);
+			} while(ini.read_value());
+
+		} catch(char*) {}
 	}
 
 	ini.close();
