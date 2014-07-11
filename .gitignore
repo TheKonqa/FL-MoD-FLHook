@@ -18,3 +18,9 @@ project-vc12/Debug/
 project-vc9/FLHook.ncb
 project-vc9/FLHook.ncb
 project-vc9/FLHook.suo
+*.exp
+*.obj
+*.dep
+*.manifest
+*.asm
+*.asm

@@ -507,7 +507,7 @@ bool __stdcall HkCb_Land(IObjInspectImpl *obj, uint base_dock_id, uint base)
 				pub::GetSystemNickname(szSystem, sizeof(szSystem), Players[client].iSystemID);
 				
 				char szProxyBase[1024];
-				sprintf(szProxyBase, "%s_proxy_base", szSystem);
+				sprintf(szProxyBase, "%s_mobile_proxy_base", szSystem);
 
 				uint iProxyBaseID = CreateID(szProxyBase);
 		
@@ -1329,7 +1329,7 @@ static void ForcePlayerBaseDock(uint client, PlayerBase *base)
 	pub::GetSystemNickname(system_nick, sizeof(system_nick), base->system);
 				
 	char proxy_base_nick[1024];
-	sprintf(proxy_base_nick, "%s_proxy_base", system_nick);
+	sprintf(proxy_base_nick, "%s_mobile_proxy_base", system_nick);
 
 	uint proxy_base_id = CreateID(proxy_base_nick);
 		
@@ -1371,7 +1371,7 @@ bool ExecuteCommandString_Callback(CCmds* cmd, const wstring &args)
 		while (sys)
 		{
 			fprintf(f, "[Base]\n");
-			fprintf(f, "nickname = %s_proxy_base\n", sys->nickname);
+			fprintf(f, "nickname = %s_mobile_proxy_base\n", sys->nickname);
 			fprintf(f, "system = %s\n", sys->nickname);
 			fprintf(f, "strid_name = 0\n");
 			fprintf(f, "file=Universe\\Systems\\proxy_base->ini\n");
@@ -1392,9 +1392,9 @@ bool ExecuteCommandString_Callback(CCmds* cmd, const wstring &args)
 			{
 				ConPrint(L"doing path %s\n", stows(path).c_str());
 				fprintf(file, "\n\n[Object]\n");
-				fprintf(file, "nickname = %s_proxy_base\n", sys->nickname);
-				fprintf(file, "dock_with = %s_proxy_base\n", sys->nickname);
-				fprintf(file, "base = %s_proxy_base\n", sys->nickname);
+				fprintf(file, "nickname = %s_mobile_proxy_base\n", sys->nickname);
+				fprintf(file, "dock_with = %s_mobile_proxy_base\n", sys->nickname);
+				fprintf(file, "base = %s_mobile_proxy_base\n", sys->nickname);
 				fprintf(file, "pos = 0, -100000, 0\n");
 				fprintf(file, "archetype = invisible_base\n");
 				fprintf(file, "behavior = NOTHING\n");

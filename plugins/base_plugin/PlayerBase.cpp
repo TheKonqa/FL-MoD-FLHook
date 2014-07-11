@@ -107,7 +107,7 @@ void PlayerBase::SetupDefaults()
 		pub::GetSystemNickname(system_nick, sizeof(system_nick), system);	
 
 		char proxy_base_nick[1024];
-		sprintf(proxy_base_nick, "%s_proxy_base", system_nick);
+		sprintf(proxy_base_nick, "%s_mobile_proxy_base", system_nick);
 
 		proxy_base = CreateID(proxy_base_nick);
 	}
