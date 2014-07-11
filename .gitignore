@@ -1,7 +1,6 @@
 *.pdb
 *.log
 *.tlog
-*BuildLog.htm
 bin-vc12/FLHook.pdb
 bin-vc12/FLHook.dll
 project-vc9/Release/
@@ -13,14 +12,9 @@ project-vc12/Debug/
 *.htm
 *.ncb
 *.suo
-*.ncb
-*.htm
 project-vc9/FLHook.ncb
 project-vc9/FLHook.ncb
 project-vc9/FLHook.suo
 *.exp
 *.obj
-*.dep
-*.manifest
-*.asm
 *.asm
