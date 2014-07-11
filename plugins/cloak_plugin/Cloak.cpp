@@ -101,7 +101,7 @@ void LoadSettings()
 	// The path to the configuration file.
 	char szCurDir[MAX_PATH];
 	GetCurrentDirectory(sizeof(szCurDir), szCurDir);
-	string scPluginCfgFile = string(szCurDir) + "\\flhook_plugins\\discocloak.cfg";
+	string scPluginCfgFile = string(szCurDir) + "\\flhook_plugins\\discocloak.ini";
 
 	INI_Reader ini;
 	if (ini.open(scPluginCfgFile.c_str(), false))

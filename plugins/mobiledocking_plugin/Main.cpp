@@ -154,7 +154,7 @@ void LoadSettings()
 	// The path to the configuration file.
 	char szCurDir[MAX_PATH];
 	GetCurrentDirectory(sizeof(szCurDir), szCurDir);
-	string scPluginCfgFile = string(szCurDir) + "\\flhook_plugins\\mobiledocking.cfg";
+	string scPluginCfgFile = string(szCurDir) + "\\flhook_plugins\\dsy_mobiledocking.ini";
 
 	// Load generic settings
 	set_iPluginDebug = IniGetI(scPluginCfgFile, "General", "Debug", 0);

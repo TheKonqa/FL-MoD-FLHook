@@ -181,7 +181,7 @@ namespace HyperJump
 
 		char szCurDir[MAX_PATH];
 		GetCurrentDirectory(sizeof(szCurDir), szCurDir);
-		string scCfgFile = string(szCurDir) + "\\flhook_plugins\\jump.cfg";
+		string scCfgFile = string(szCurDir) + "\\flhook_plugins\\jump.ini";
 	
 		INI_Reader ini;
 		if (ini.open(scCfgFile.c_str(), false))

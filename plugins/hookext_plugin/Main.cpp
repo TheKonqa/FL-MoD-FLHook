@@ -140,7 +140,7 @@ void LoadSettings()
 	// The path to the configuration file.
 	char szCurDir[MAX_PATH];
 	GetCurrentDirectory(sizeof(szCurDir), szCurDir);
-	string scPluginCfgFile = string(szCurDir) + "\\flhook_plugins\\hookext.cfg";
+	string scPluginCfgFile = string(szCurDir) + "\\flhook_plugins\\hookext.ini";
 
 	clients.clear();
 	struct PlayerData *pPD = 0;

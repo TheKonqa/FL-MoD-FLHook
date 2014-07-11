@@ -84,7 +84,7 @@ void LoadSettings()
 	// The path to the configuration file.
 	char szCurDir[MAX_PATH];
 	GetCurrentDirectory(sizeof(szCurDir), szCurDir);
-	string scPluginCfgFile = string(szCurDir) + "\\flhook_plugins\\event.cfg";
+	string scPluginCfgFile = string(szCurDir) + "\\flhook_plugins\\event.ini";
 
 	INI_Reader ini;
 	set_mapCargoMissions.clear();
