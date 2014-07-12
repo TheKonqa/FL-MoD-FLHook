@@ -12,7 +12,6 @@
 #define ISERVER_LOGARG_V(a) if(set_bDebug) AddDebugLog("     " #a ": %f %f %f", (float)a.x, (float)a.y, (float)a.z);
 #define ISERVER_LOGARG_Q(a) if(set_bDebug) AddDebugLog("     " #a ": %f %f %f %f", (float)a.x, (float)a.y, (float)a.z, (float)a.w);
 
-
 #define EXECUTE_SERVER_CALL(args) \
 	{ \
 	static CTimer timer(__FUNCTION__,set_iTimerThreshold); \
@@ -28,8 +27,6 @@
 		if (ClientInfo[iClientID].bDisconnected) \
 		{ AddLog("ERROR: Ignoring disconnected client in "__FUNCTION__" id=%u", iClientID); return; }; \
 	}
-
-CInGame admin;
 
 namespace HkIServerImpl
 {

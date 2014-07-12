@@ -1173,7 +1173,7 @@ void CCmds::ExecuteCommandString(const wstring &wscCmdStr)
 			}
 			
 			admin.wscAdminName = L"";
-			admin.iClientID = 1;
+			admin.iClientID = 0;
 
 		}
 		if(bSocket)
