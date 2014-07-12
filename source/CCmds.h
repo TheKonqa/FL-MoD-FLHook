@@ -107,6 +107,8 @@ public:
 	void CmdPausePlugin(const wstring &wscPlugin);
 	void CmdUnpausePlugin(const wstring &wscPlugin);
 
+	void CmdSpawns(wstring wscToggle);
+
 	void CmdTest(int iArg, int iArg2, int iArg3);
 //
 	EXPORT wstring ArgCharname(uint iArg);

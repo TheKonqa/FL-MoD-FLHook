@@ -218,7 +218,7 @@ HK_ERROR HkDelAdmin(const wstring &wscCharname)
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 bool g_bNPCDisabled = false;
-
+bool g_bNPCForceDisabled = false;
 HK_ERROR HkChangeNPCSpawn(bool bDisable)
 {
 	if(g_bNPCDisabled && bDisable)

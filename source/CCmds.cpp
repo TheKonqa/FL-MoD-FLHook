@@ -843,6 +843,35 @@ void CCmds::CmdRehash()
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void CCmds::CmdSpawns(wstring wscToggle)
+{
+	RIGHT_CHECK_SUPERADMIN();
+
+	if(ToLower(wscToggle) == L"on")
+	{
+		HkChangeNPCSpawn(false);
+	}
+	else if(ToLower(wscToggle) == L"off")
+	{
+		HkChangeNPCSpawn(true);
+	}
+	else if(!wscToggle.length())
+	{
+		g_bNPCForceDisabled = false;
+		Print(L"Control ceded to server load\n");
+		return;
+	}
+	else
+	{
+		Print(L"ERR argument should be <on|off>\n");
+		return;
+	}
+	g_bNPCForceDisabled = true;
+	Print(L"OK\n");
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void CCmds::CmdHelp()
 {
 	wchar_t wszHelpMsg[] = 
@@ -907,6 +936,7 @@ void CCmds::CmdHelp()
 		L"unloadplugin <plugin shortname>\n"
 		L"pauseplugin <plugin shortname>\n"
 		L"unpauseplugin <plugin shortname>\n"
+		L"spawns [on|off]\n"
 		L"rehash\n"
 		;
 
@@ -1164,6 +1194,8 @@ void CCmds::ExecuteCommandString(const wstring &wscCmdStr)
 				CmdUnpausePlugin(ArgStrToEnd(1));
 			} else if(IS_CMD("rehash")) {
 				CmdRehash();
+			} else if(IS_CMD("spawns")) {
+				CmdSpawns(ArgStr(1));
 			} else if(IS_CMD("help")) {
 				CmdHelp();
 			} else if(IS_CMD("test")) {
