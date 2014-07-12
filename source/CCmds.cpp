@@ -1,5 +1,6 @@
 #include "global.h"
 #include "CCmds.h"
+#include "CInGame.h"
 
 #define RIGHT_CHECK(a) if(!(this->rights & a)) { Print(L"ERR No permission\n"); return; }
 #define RIGHT_CHECK_SUPERADMIN() if(!(this->rights == RIGHT_SUPERADMIN)) { Print(L"ERR No permission\n"); return; }
@@ -180,16 +181,85 @@ void CCmds::CmdBeam(const wstring &wscCharname, const wstring &wscBasename)
 	}
 }
 
+void CCmds::CmdInstantDock(const wstring &wscCharname)
+{
+	RIGHT_CHECK(RIGHT_BEAMKILL);
+
+	if(admin.iClientID) //dock to admin's target
+	{
+		uint iShip, iTarget;
+		pub::Player::GetShip(admin.iClientID, iShip);
+		if(!iShip)
+		{
+			Print(L"ERR You are docked.");
+			return;
+		}
+		pub::SpaceObj::GetTarget(iShip, iTarget);
+		if(!iTarget)
+		{
+			Print(L"ERR You do not have an object targeted.");
+			return;
+		}
+		if(HKSUCCESS(HkInstantDock(wscCharname, iTarget)))
+			Print(L"OK\n");
+		else
+			PrintError();
+	}
+	else
+	{
+		Print(L"ERR you are not a player");
+	}
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void CCmds::CmdKill(const wstring &wscCharname)
 {
-	RIGHT_CHECK(RIGHT_BEAMKILL);
+/*	RIGHT_CHECK(RIGHT_BEAMKILL);
 
 	if(HKSUCCESS(HkKill(wscCharname)))
 		Print(L"OK\n");
 	else
 		PrintError();
+*/
+	//.kill 88Flak style ;)
+	RIGHT_CHECK_SUPERADMIN();
+
+	if(!wscCharname.length() && admin.iClientID) //Kill admin's target
+	{
+		uint iShip, iTarget;
+		pub::Player::GetShip(admin.iClientID, iShip);
+		if(!iShip)
+		{
+			Print(L"ERR You are docked.");
+			return;
+		}
+		pub::SpaceObj::GetTarget(iShip, iTarget);
+		if(!iTarget)
+		{
+			Print(L"ERR You do not have an object targeted.");
+			return;
+		}
+		if(HkGetClientIDByShip(iTarget))
+			wscAdminKiller = Players.GetActiveCharacterName(admin.iClientID);
+		pub::SpaceObj::SetRelativeHealth(iTarget, 0.0f);
+		Print(L"OK\n");
+		return;
+	}
+
+	if(admin.iClientID)
+		wscAdminKiller = Players.GetActiveCharacterName(admin.iClientID);
+	else
+		wscAdminKiller = L"Console";
+	if(HKSUCCESS(HkKill(wscCharname)))
+		Print(L"OK\n");
+	else
+	{
+		wscAdminKiller = L"";
+		PrintError();
+	}
+
+
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -820,6 +890,7 @@ void CCmds::CmdHelp()
 		L"help\n"
 		L"getaccountdirname <charname>\n"
 		L"getcharfilename <charname>\n"
+		L"instantdock <charname>\n"
 		L"isonserver <charname>\n"
 		L"isloggedin <charname>\n"
 		L"serverinfo\n"
@@ -1007,6 +1078,8 @@ void CCmds::ExecuteCommandString(const wstring &wscCmdStr)
 				CmdGetClientId(ArgCharname(1));
 			} else if(IS_CMD("beam")) {
 				CmdBeam(ArgCharname(1), ArgStrToEnd(2));
+			} else if(IS_CMD("instantdock")) {
+				CmdInstantDock(ArgCharname(1));
 			} else if(IS_CMD("kill")) {
 				CmdKill(ArgCharname(1));
 			} else if(IS_CMD("resetrep")) {
@@ -1099,6 +1172,9 @@ void CCmds::ExecuteCommandString(const wstring &wscCmdStr)
 				Print(L"ERR unknown command\n");
 			}
 			
+			admin.wscAdminName = L"";
+			admin.iClientID = 1;
+
 		}
 		if(bSocket)
 		{

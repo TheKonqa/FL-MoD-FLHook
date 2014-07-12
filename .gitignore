@@ -18,3 +18,5 @@ project-vc9/FLHook.suo
 *.exp
 *.obj
 *.asm
+*.suo
+project-vc9/FLHook.suo

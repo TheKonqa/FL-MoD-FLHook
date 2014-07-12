@@ -282,6 +282,8 @@ enum HK_ERROR
 	HKE_INVALID_SHORTCUT_STRING,
 	HKE_MPNEWCHARACTERFILE_NOT_FOUND_OR_INVALID,
 	HKE_INVALID_REP_GROUP,
+	HKE_SYSTEM_NO_MATCH,
+	HKE_OBJECT_NO_DOCK,
 	HKE_PLUGIN_UNLOADABLE,
 	HKE_PLUGIN_UNPAUSABLE,
 	HKE_PLUGIN_NOT_FOUND,
@@ -618,6 +620,7 @@ EXPORT HK_ERROR HkKick(const wstring &wscCharname);
 EXPORT HK_ERROR HkKickReason(const wstring &wscCharname, const wstring &wscReason);
 EXPORT HK_ERROR HkBan(const wstring &wscCharname, bool bBan);
 EXPORT HK_ERROR HkBeam(const wstring &wscCharname, const wstring &wscBasename);
+EXPORT HK_ERROR HkInstantDock(wstring wscCharname, uint iDockObj);
 EXPORT HK_ERROR HkSaveChar(const wstring &wscCharname);
 EXPORT HK_ERROR HkEnumCargo(const wstring &wscCharname, list<CARGO_INFO> &lstCargo, int &iRemainingHoldSize);
 EXPORT HK_ERROR HkRemoveCargo(const wstring &wscCharname, uint iID, int iCount);
@@ -681,6 +684,7 @@ EXPORT void PrintUserCmdText(uint iClientID, wstring wscText, ...);
 // HkDeath
 void ShipDestroyedHook();
 void BaseDestroyed(uint iObject, uint iClientIDBy);
+extern wstring wscAdminKiller;
 
 // HkDamage
 void _HookMissileTorpHit();

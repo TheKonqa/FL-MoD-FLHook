@@ -33,6 +33,8 @@ HK_ERROR_INFO hkErrors[] =
 	{ HKE_INVALID_SHORTCUT_STRING,		L"Invalid shortcut string" },
 	{ HKE_MPNEWCHARACTERFILE_NOT_FOUND_OR_INVALID,	L"mpnewcharacter.fl not found or invalid" },
 	{ HKE_INVALID_REP_GROUP,			L"Invalid reputation group" },
+	{ HKE_SYSTEM_NO_MATCH,				L"Your target's system and the player's system are not the same" },
+	{ HKE_OBJECT_NO_DOCK,				L"Your target is not dockable" },
 	{ HKE_PLUGIN_UNLOADABLE,			L"Plugin cannot be unloaded" },
 	{ HKE_PLUGIN_UNPAUSABLE,			L"Plugin cannot be paused" },
 	{ HKE_PLUGIN_NOT_FOUND,				L"Plugin not found" },

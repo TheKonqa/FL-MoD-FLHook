@@ -1,5 +1,6 @@
 #include <fstream>
 #include "hook.h"
+#include "CInGame.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -244,6 +245,32 @@ HK_ERROR HkBeam(const wstring &wscCharname, const wstring &wscBasename)
 		strcpy(cID.szCharFilename,wstos(wscCharFileName.substr(0,14)).c_str());
 		Server.CharacterSelect(cID, iClientID);
 	}
+
+	return HKE_OK;
+}
+
+HK_ERROR HkInstantDock(wstring wscCharname, uint iDockObj)
+{
+	HK_GET_CLIENTID(iClientID, wscCharname);
+
+	// check if logged in
+	if(iClientID == -1)
+		return HKE_PLAYER_NOT_LOGGED_IN;
+
+	uint iShip;
+	pub::Player::GetShip(iClientID, iShip);
+	if(!iShip)
+		return HKE_PLAYER_NOT_IN_SPACE;
+
+	uint iSystemID, iSystemID2;
+	pub::SpaceObj::GetSystem(iShip, iSystemID);
+	pub::SpaceObj::GetSystem(iDockObj, iSystemID2);
+	if(iSystemID!=iSystemID2)
+		return HKE_SYSTEM_NO_MATCH;
+
+	try {
+		pub::SpaceObj::InstantDock(iShip, iDockObj, 1);
+	} catch(...) { return HKE_OBJECT_NO_DOCK; }
 
 	return HKE_OK;
 }

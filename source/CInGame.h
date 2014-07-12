@@ -13,4 +13,6 @@ public:
 	wstring GetAdminName();
 };
 
+extern CInGame admin;
+
 #endif

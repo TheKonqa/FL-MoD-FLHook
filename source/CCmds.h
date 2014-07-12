@@ -49,6 +49,7 @@ public:
 	void CmdKickBan(const wstring &wscCharname, const wstring &wscReason);
 
 	void CmdBeam(const wstring &wscCharname, const wstring &wscBasename);
+	void CmdInstantDock(const wstring &wscCharname);
 	void CmdKill(const wstring &wscCharname);
 	void CmdResetRep(const wstring &wscCharname);
 	void CmdSetRep(const wstring &wscCharname, const wstring &wscRepGroup, float fValue);

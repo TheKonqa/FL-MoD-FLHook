@@ -29,6 +29,8 @@
 		{ AddLog("ERROR: Ignoring disconnected client in "__FUNCTION__" id=%u", iClientID); return; }; \
 	}
 
+CInGame admin;
+
 namespace HkIServerImpl
 {
 
