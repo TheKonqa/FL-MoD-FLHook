@@ -1,7 +1,6 @@
 /**
-BeamMeUp Plugin by ***M.o.D.***
-based on:
-Connecticut Plugin by MadHunter
+BeamMeUp Plugin based on: Connecticut Plugin by MadHunter
+minmalistic edits by: ***M.o.D.***
 */
 
 // includes 
@@ -14,8 +13,8 @@ Connecticut Plugin by MadHunter
 #include <list>
 #include <map>
 #include <algorithm>
-#include "./headers/FLHook.h"
-#include "./headers/plugin.h"
+#include <FLHook.h>
+#include <plugin.h>
 #include "../hookext_plugin/hookext_exports.h"
 #include <math.h>
 
@@ -28,17 +27,19 @@ int transferFlags[MAX_CLIENT_ID+1];
 const std::wstring STR_INFO1		= L"ERROR: Please dock at nearest base";
 const std::wstring STR_INFO2		= L"ERROR: Cargo hold is not empty";
 
+// Plugin Debug Level
 int set_iPluginDebug = 0;
+
+// Target system, cannot jump out of here.
+uint set_iTargetSystemID = 0;
+
 // Base to beam to.
 uint set_iTargetBaseID = 0;
 
 // Restricted system, cannot jump out of here.
 uint set_iRestrictedSystemID = 0;
 
-// Target system, cannot jump out of here.
-uint set_iTargetSystemID = 0;
-
-// Base to use if player is trapped in the conn system.
+// Base to use if player is trapped in the "beammeup" system.
 uint set_iDefaultBaseID = 0;
 
 /// A return code to indicate to FLHook if we want the hook processing to continue.
@@ -64,9 +65,9 @@ void LoadSettings()
 
 	// Load generic settings
 	set_iPluginDebug = IniGetI(scPluginCfgFile, "General", "Debug", 0);
+	set_iTargetSystemID = CreateID(IniGetS(scPluginCfgFile, "General", "TargetSystem", "pvp01").c_str());
 	set_iTargetBaseID = CreateID(IniGetS(scPluginCfgFile, "General", "TargetBase", "pvp01_02_base").c_str());
 	set_iRestrictedSystemID = CreateID(IniGetS(scPluginCfgFile, "General", "RestrictedSystem", "bw11").c_str());
-	set_iTargetSystemID = CreateID(IniGetS(scPluginCfgFile, "General", "TargetSystem", "pvp01").c_str());
 	set_iDefaultBaseID = CreateID(IniGetS(scPluginCfgFile, "General", "DefaultBase", "Li01_mobile_proxy_base").c_str());
 }
 
@@ -138,12 +139,12 @@ void StoreReturnPointForClient(unsigned int client)
 	if (!base)
 		return;
 
-	HookExt::IniSetI(client, "conn.retbase", base);
+	HookExt::IniSetI(client, "beammeup.retbase", base);
 }
 
 unsigned int ReadReturnPointForClient(unsigned int client)
 {
-	return HookExt::IniGetI(client, "conn.retbase");
+	return HookExt::IniGetI(client, "beammeup.retbase");
 }
 
 void MoveClient(unsigned int client, unsigned int targetBase)
@@ -228,7 +229,7 @@ bool UserCmd_Process(uint client, const wstring &cmd)
 	{
 		if (!ReadReturnPointForClient(client))
 		{
-			PrintUserCmdText(client, L"No return possible");
+			PrintUserCmdText(client, L"ERR No return possible");
 			return true;
 		}
 
@@ -240,7 +241,7 @@ bool UserCmd_Process(uint client, const wstring &cmd)
 
 		if (!CheckReturnDock(client, set_iTargetBaseID))
 		{
-			PrintUserCmdText(client, L"Not in correct base");
+			PrintUserCmdText(client, L"ERR Not in correct base");
 			return true;
 		}
 
@@ -297,7 +298,7 @@ void __stdcall PlayerLaunch_AFTER(unsigned int ship, unsigned int client)
 			return;
 
 		MoveClient(client, returnPoint);
-		HookExt::IniSetI(client, "conn.retbase", 0);
+		HookExt::IniSetI(client, "beammeup.retbase", 0);
 		return;
 	}
 }
@@ -307,7 +308,7 @@ void __stdcall PlayerLaunch_AFTER(unsigned int ship, unsigned int client)
 EXPORT PLUGIN_INFO* Get_PluginInfo()
 {
 	PLUGIN_INFO* p_PI = new PLUGIN_INFO();
-	p_PI->sName = "BeamMeUp Plugin by ***M.o.D.***";
+	p_PI->sName = "BeamMeUp Plugin based on: Connecticut Plugin by MadHunter";
 	p_PI->sShortName = "beammeup";
 	p_PI->bMayPause = true;
 	p_PI->bMayUnload = true;
