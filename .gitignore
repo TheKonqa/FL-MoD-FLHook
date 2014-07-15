@@ -21,3 +21,6 @@ project-vc9/FLHook.suo
 *.suo
 project-vc9/FLHook.suo
 *.user
+*.manifest
+*.dep
+*.idb

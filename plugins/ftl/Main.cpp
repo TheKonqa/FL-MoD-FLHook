@@ -23,13 +23,13 @@ EXPORT PLUGIN_RETURNCODE Get_PluginReturnCode()
 	return returncode;
 }
 
-//EXPORT void UserCmd_Help(uint iClientID, const wstring &wscParam)
-//{
-//    PrintUserCmdText(iClientID, L"/ftl <--- you must target a jump hole or gate /ftl x y z");
-//	PrintUserCmdText(iClientID, L"/sftl <--- will move you to the location in the system you are in /sftl x y z");
-//	PrintUserCmdText(iClientID, L"/j <--- target a object and you will jump to that object");
-//	PrintUserCmdText(iClientID, L"/coords <--- supplys the coords of your target to be used with /ftl or /sftl");
-//}
+EXPORT void UserCmd_Help(uint iClientID, const wstring &wscParam)
+{
+  PrintUserCmdText(iClientID, L"/ftl <--- you must target a jump hole or gate /ftl x y z");
+	PrintUserCmdText(iClientID, L"/sftl <--- will move you to the location in the system you are in /sftl x y z");
+	PrintUserCmdText(iClientID, L"/j <--- target a object and you will jump to that object");
+	PrintUserCmdText(iClientID, L"/coords <--- supplys the coords of your target to be used with /ftl or /sftl");
+}
 
 EXPORT void LoadSettings()
 {
