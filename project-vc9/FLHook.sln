@@ -98,6 +98,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DynamicMissions", "..\plugi
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AcctPath_Patch", "..\acctpath_patch\src\AcctPath_Patch.vcproj", "{DEA7F4AC-E568-43EE-83D6-CA8804EA557B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BeamMeUp", "..\plugins\beammeup_plugin\Beammeup Plugin.vcproj", "{02B56278-3158-4509-A150-C049539935E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -297,6 +299,12 @@ Global
 		{DEA7F4AC-E568-43EE-83D6-CA8804EA557B}.Release|Win32.Build.0 = Release|Win32
 		{DEA7F4AC-E568-43EE-83D6-CA8804EA557B}.ReleaseVersion|Win32.ActiveCfg = Release|Win32
 		{DEA7F4AC-E568-43EE-83D6-CA8804EA557B}.ReleaseVersion|Win32.Build.0 = Release|Win32
+		{02B56278-3158-4509-A150-C049539935E0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{02B56278-3158-4509-A150-C049539935E0}.Debug|Win32.Build.0 = Debug|Win32
+		{02B56278-3158-4509-A150-C049539935E0}.Release|Win32.ActiveCfg = Release|Win32
+		{02B56278-3158-4509-A150-C049539935E0}.Release|Win32.Build.0 = Release|Win32
+		{02B56278-3158-4509-A150-C049539935E0}.ReleaseVersion|Win32.ActiveCfg = Release|Win32
+		{02B56278-3158-4509-A150-C049539935E0}.ReleaseVersion|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

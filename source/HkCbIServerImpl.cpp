@@ -28,6 +28,8 @@
 		{ AddLog("ERROR: Ignoring disconnected client in "__FUNCTION__" id=%u", iClientID); return; }; \
 	}
 
+CInGame admin;
+
 namespace HkIServerImpl
 {
 
@@ -95,7 +97,7 @@ cIdTo:     recipient's clientid(0x10000 = universe chat else when (cIdTo & 0x100
 iP2:       ???
 **************************************************************************************************************/
 
-CInGame admin;
+
 bool g_bInSubmitChat = false;
 uint g_iTextLen = 0;
 

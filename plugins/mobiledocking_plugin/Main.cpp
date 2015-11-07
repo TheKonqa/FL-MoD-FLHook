@@ -287,7 +287,7 @@ bool UserCmd_Process(uint client, const wstring &wscCmd)
 		// Delete the docking request and dock the player.
 		mapPendingDockingRequests.erase(iTargetClientID);
 
-		string scProxyBase = HkGetPlayerSystemS(client) + "_proxy_base";
+		string scProxyBase = HkGetPlayerSystemS(client) + "_mobile_proxy_base";
 		uint iBaseID;
 		if (pub::GetBaseID(iBaseID, scProxyBase.c_str()) == -4)
 		{
